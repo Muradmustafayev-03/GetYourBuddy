@@ -1,0 +1,80 @@
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1024px) {
+ 	body {
+ 		margin: 0px;
+ 		height: 100vh;
+    display: grid;
+  	grid-template-columns: 3fr 4fr 3fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-gap: 1rem;
+ 	}
+ 
+	header, footer {
+  	grid-column-start: 1;
+  	grid-column-end: 4;
+  	margin: 1.5%;
+ 	}
+
+ 	header {
+		margin-top: 1%
+ 	}
+
+ 	footer {
+ 		margin-bottom: 0;
+ 	}
+
+	#email {
+ 		margin-bottom: 1%;
+ 	}
+
+ 	main {
+ 		grid-column-start: 2;
+ 	}
+
+ 	.wrapper {
+		border-width: 1px;
+		border-style: solid;
+		border-radius: 10px;
+		text-align: center;
+	}
+
+	.language_switcher {
+		display: inline-block;
+  	position: relative;
+  	float: right;
+  	top: 50%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+	}
+
+	#language {
+		display: block;
+	}
+
+
+	.site_name {
+		display: block;
+	}
+
+	hr {
+		width: 80%;
+	}
+
+	address {
+		display: inline;
+	}
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (max-device-width : 768px) {
+/* Styles */
+}

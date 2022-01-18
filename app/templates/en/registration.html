@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/css/not_authorised.css">
+    <link rel="stylesheet" href="../../static/css/forms.css">
+    <title>Registration | GYB</title>
+</head>
+<body>
+    <header>
+        <div class="back">
+            <button id="back_button" onclick="location = '/en/welcome'">Back</button>
+        </div>
+        <div class="language_switcher">
+            <label for="language">Language</label>
+            <select name="language" id="language" onchange="location = this.value;">
+                <option value="/en/registration">English</option>
+                <option value="/ru/registration">Russian</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <h1>Welcome to <span class="site_name">GetYourBuddy</span></h1>
+            <hr>
+            <form method="post" name="login" class="login_form" id="login_form">
+                {% csrf_token %}
+                {{form}}
+                {{error}}
+                <input type="submit" name="submit" id="submit" value="Register">
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>GetYourBuddy 2022</p>
+        <div class="contact" id="email">Email: <address>getyourbuddy.online@gmail.com</address></div>
+    </footer>
+</body>
+</html>

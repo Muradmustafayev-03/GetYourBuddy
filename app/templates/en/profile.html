@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{nickname}} | GYB</title>
+</head>
+<body>
+    <header>
+        <a href="/en/chats">
+            <div>Chats</div>
+        </a>
+        <a href="/en/buddies">
+            <div>Buddies</div>
+        </a>
+        <a href="/en/profile">
+            <div>Profile</div>
+        </a>
+        <div class="language_switcher">
+            <label for="language">Language</label>
+            <select name="language" id="language" onchange="location = this.value;">
+                <option value="/en/profile">English</option>
+                <option value="/ru/profile">Russian</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        {% if photo %}
+        <img src="{{photo.url}}" alt="profile photo">
+        {% endif %}
+        <h1>{{nickname}}</h1>
+        {% if birthdate %}
+        <p>Birthdate: {{birthdate}}</p>
+        {% endif %}
+        {% if country %}
+        <p>Country: {{country}}</p>
+        {% endif %}
+        {% if city %}
+        <p>City: {{city}}</p>
+        {% endif %}
+        {% if bio %}
+        <p>{{bio}}</p>
+        {% endif %}
+    </main>
+    <footer>
+        <p>GetYourBuddy 2022</p>
+        <div class="contact" id="email">Email: <address>getyourbuddy.online@gmail.com</address></div>
+    </footer>
+</body>
+</html>

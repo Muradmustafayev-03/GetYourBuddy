@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/css/not_authorised.css">
+    <link rel="stylesheet" href="../../static/css/welcome.css">
+    <title>Welcome | GYB</title>
+</head>
+<body>
+    <header>
+        <div class="language_switcher">
+            <label for="language">Language</label>
+            <select name="language" id="language" onchange="location = this.value;">
+                <option value="/en/welcome">English</option>
+                <option value="/ru/welcome">Russian</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <h1>Welcome to <span class="site_name">GetYourBuddy</span></h1>
+            <hr>
+            <form method="get" action="/en/login" name="login_form" class="button_form" id="login_form">
+                <p class="above_button_question">Do you already have a <span class="site_abbreviation">GYB</span> page?</p>
+                <button id="login_button" class="welcome_page_button">
+                    Login
+                </button>
+            </form>
+            <p>or</p>
+            <form method="get" action="/en/registration" name="registration_form" class="button_form" id="reg_form">
+                <p>Do you want to register?</p>
+                <button id="registration_button" class="welcome_page_button">
+                    Registration
+                </button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>GetYourBuddy 2022</p>
+        <div class="contact" id="email">Email: <address>getyourbuddy.online@gmail.com</address></div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{nickname}} | ДК</title>
+</head>
+<body>
+    <header>
+        <a href="/en/chats">
+            <div>Чаты</div>
+        </a>
+        <a href="/en/buddies">
+            <div>Кореша</div>
+        </a>
+        <a href="/en/profile">
+            <div>Профиль</div>
+        </a>
+        <div class="language_switcher">
+            <label for="language">Язык</label>
+            <select name="language" id="language" onchange="location = this.value;">
+                <option value="/ru/profile">Русский</option>
+                <option value="/en/profile">Английский</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        {% if photo %}
+        <img src="{{photo.url}}" alt="profile photo">
+        {% endif %}
+        <h1>{{nickname}}</h1>
+        {% if birthdate %}
+        <p>Дата рождения: {{birthdate}}</p>
+        {% endif %}
+        {% if country %}
+        <p>Страна: {{country}}</p>
+        {% endif %}
+        {% if city %}
+        <p>Город: {{city}}</p>
+        {% endif %}
+        {% if bio %}
+        <p>{{bio}}</p>
+        {% endif %}
+    </main>
+    <footer>
+        <p>ДостаньКореша 2022</p>
+        <div class="contact" id="email">Email: <address>getyourbuddy.online@gmail.com</address></div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/css/not_authorised.css">
+    <link rel="stylesheet" href="../../static/css/forms.css">
+    <title>Логин | ДК</title>
+</head>
+<body>
+    <header>
+        <div class="back">
+            <button id="back_button" onclick="location = '/ru/welcome'">Назад</button>
+        </div>
+        <div class="language_switcher">
+            <label for="language">Язык</label>
+            <select name="language" id="language" onchange="location = this.value;">
+                <option value="/ru/login">Русский</option>
+                <option value="/en/login">Английский</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <h1>Добро пожаловать в <span class="site_name">ДостаньКореша</span></h1>
+            <hr>
+            <form method="post" action="/login" name="login" class="login_form" id="login_form">
+                <div class="input_div">
+                    <label for="login_input">Введите логин или email</label>
+                    <input type="text" class="login_form_input" name="login_input" id="login_input"
+                       value="" placeholder="Enter your login or email" required>
+                </div>
+                <div class="input_div">
+                    <label for="password_input">Введите пароль</label>
+                    <input type="password" class="login_form_input" name="password_input" id="password_input"
+                       value="" placeholder="Enter your password" required>
+                </div>
+                <input type="submit" name="submit" id="submit" value="Войти">
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>ДостаньКореша 2022</p>
+        <div class="contact" id="email">Email: <address>getyourbuddy.online@gmail.com</address></div>
+    </footer>
+</body>
+</html>

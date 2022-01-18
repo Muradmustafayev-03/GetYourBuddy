@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/css/not_authorised.css">
+    <link rel="stylesheet" href="../../static/css/welcome.css">
+    <title>Добро пожаловать | ДК</title>
+</head>
+<body>
+    <header>
+        <div class="language_switcher">
+            <label for="language">Язык</label>
+            <select name="language" id="language" onchange="location = this.value;">
+                <option value="/ru/welcome">Русский</option>
+                <option value="/en/welcome">Английский</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <h1>Добро пожаловать в <span class="site_name">ДостаньКореша</span></h1>
+            <hr>
+            <form method="get" action="/ru/login" name="login_form" class="button_form" id="login_form">
+                <p class="above_button_question">У вас уже есть профиль в <span class="site_abbreviation">ДК</span>?</p>
+                <button id="login_button" class="welcome_page_button">
+                    Вход
+                </button>
+            </form>
+            <p>или</p>
+            <form method="get" action="/ru/registration" name="registration_form" class="button_form" id="reg_form">
+                <p>Вы хотите зарегистрироваться?</p>
+                <button id="registration_button" class="welcome_page_button">
+                    Регистрация
+                </button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>ДостаньКореша 2022</p>
+        <div class="contact" id="email">Email: <address>getyourbuddy.online@gmail.com</address></div>
+    </footer>
+</body>
+</html>
