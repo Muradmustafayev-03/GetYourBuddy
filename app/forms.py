@@ -36,14 +36,14 @@ class EnRegisterForm(RegisterForm):
                                                                   'class': 'login_form_input',
                                                                   'placeholder': 'Password'}))
 
+    email = forms.EmailField(label='Enter your email address:', required=False,
+                             widget=forms.EmailInput(attrs={'class': 'login_form_input',
+                                                            'placeholder': 'someone@mail.com'}))
+
     photo = forms.ImageField(label='Upload a profile photo', required=False,
                              widget=forms.FileInput(attrs={'class': 'image_input'}))
     nickname = forms.CharField(label='Enter your name or nickname:', required=True,
                                widget=forms.TextInput(attrs={'class': 'login_form_input'}))
-
-    email = forms.EmailField(label='Enter your email address:', required=False,
-                             widget=forms.EmailInput(attrs={'class': 'login_form_input',
-                                                            'placeholder': 'someone@mail.com'}))
 
     birthdate = forms.DateField(label='Enter your date of birth:', required=False,
                                 widget=forms.DateInput(attrs={
@@ -60,7 +60,7 @@ class EnRegisterForm(RegisterForm):
 class RuRegisterForm(RegisterForm):
     username = forms.CharField(label='Придумайте логин:',
                                widget=forms.TextInput(attrs={'class': 'login_form_input',
-                                                             'placeholder': 'Имя пользователя'}))
+                                                             'placeholder': 'Логин'}))
     password1 = forms.CharField(label='Придумайте пароль:',
                                 strip=False,
                                 widget=forms.PasswordInput(attrs={'autocomplete': 'new-password',
@@ -72,14 +72,14 @@ class RuRegisterForm(RegisterForm):
                                                                   'class': 'login_form_input',
                                                                   'placeholder': 'Password'}))
 
+    email = forms.EmailField(label='Введите ваш email:', required=False,
+                             widget=forms.EmailInput(attrs={'class': 'login_form_input',
+                                                            'placeholder': 'someone@mail.com'}))
+
     photo = forms.ImageField(label='Загрузите фотографию', required=False,
                              widget=forms.FileInput(attrs={'class': 'image_input'}))
     nickname = forms.CharField(label='Придумайте никнейм', required=True,
                                widget=forms.TextInput(attrs={'class': 'login_form_input'}))
-
-    email = forms.EmailField(label='Введите ваш email:', required=False,
-                             widget=forms.EmailInput(attrs={'class': 'login_form_input',
-                                                            'placeholder': 'someone@mail.com'}))
 
     birthdate = forms.DateField(label='Введите дату рождения', required=False,
                                 widget=forms.DateInput(attrs={
