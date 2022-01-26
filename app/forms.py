@@ -1,6 +1,7 @@
 from django import forms
 from django_countries import countries
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from app.models import *
 
 COUNTRIES = (("1", "-"),) + tuple(countries)
@@ -12,7 +13,8 @@ COUNTRIES = (("1", "-"),) + tuple(countries)
 class RegisterForm(UserCreationForm):
     class Meta:
         model = Profile
-        fields = ('username', 'password1', 'password2', 'nickname', 'photo', 'birthdate', 'country', 'city', 'bio')
+        fields = ('username', 'password1', 'password2', 'email', 'nickname',
+                  'photo', 'birthdate', 'country', 'city', 'bio')
 
     def save(self, commit=True):
         user = super(RegisterForm, self).save(commit=False)
@@ -91,3 +93,27 @@ class RuRegisterForm(RegisterForm):
                            widget=forms.TextInput(attrs={'class': 'login_form_input'}))
     bio = forms.CharField(label='Напишите что-нибудь о себе', required=False,
                           widget=forms.Textarea())
+
+
+class EnLoginForm(AuthenticationForm):
+    username = forms.CharField(label='Enter your username:',
+                               widget=forms.TextInput(attrs={'class': 'login_form_input',
+                                                             'placeholder': 'Username'}))
+
+    password = forms.CharField(label='Enter your password:',
+                               strip=False,
+                               widget=forms.PasswordInput(attrs={'autocomplete': 'new-password',
+                                                                 'class': 'login_form_input',
+                                                                 'placeholder': 'Password'}))
+
+
+class RuLoginForm(AuthenticationForm):
+    username = forms.CharField(label='Введите ваш логин:',
+                               widget=forms.TextInput(attrs={'class': 'login_form_input',
+                                                             'placeholder': 'Логин'}))
+
+    password = forms.CharField(label='Введите ваш пароль:',
+                               strip=False,
+                               widget=forms.PasswordInput(attrs={'autocomplete': 'password',
+                                                                 'class': 'login_form_input',
+                                                                 'placeholder': 'Password'}))

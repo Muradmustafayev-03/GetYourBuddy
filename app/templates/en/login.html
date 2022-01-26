@@ -23,7 +23,7 @@
         <div class="wrapper">
             <h1>Welcome to <span class="site_name">GetYourBuddy</span></h1>
             <hr>
-            <form method="post" action="/login" name="login" class="login_form" id="login_form">
+            <form method="post" name="login" class="login_form" id="login_form">
                 {% csrf_token %}
                 {{form}}
                 {{error}}

@@ -14,8 +14,8 @@
         <div class="language_switcher">
             <label for="language">Язык</label>
             <select name="language" id="language" onchange="location = this.value;">
-                <option value="/ru/login">Русский</option>
-                <option value="/en/login">Английский</option>
+                <option value="/ru/login/">Русский</option>
+                <option value="/en/login/">Английский</option>
             </select>
         </div>
     </header>
@@ -23,7 +23,7 @@
         <div class="wrapper">
             <h1>Добро пожаловать в <span class="site_name">ДостаньКореша</span></h1>
             <hr>
-            <form method="post" action="/login" name="login" class="login_form" id="login_form">
+            <form method="post" name="login" class="login_form" id="login_form">
                 {% csrf_token %}
                 {{form}}
                 {{error}}

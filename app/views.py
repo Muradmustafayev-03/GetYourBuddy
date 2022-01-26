@@ -1,4 +1,4 @@
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.shortcuts import render
 from .form_translators import *
@@ -12,10 +12,26 @@ def welcome(request, lang='en'):
 
 
 def login_page(request, lang='en'):
-    if lang == 'en':
-        return render(request, "en/login.html", {})
-    elif lang == 'ru':
-        return render(request, "ru/login.html", {})
+    error = ''
+    print("ugfh")
+    if request.method == "POST":
+        print("post")
+        form = translate_login_form(lang, request.POST)
+        if form.is_valid():
+            print("valid")
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            messages.success(request, f"{user.username} has successfully logged in")
+            user_profile = Profile.objects.filter(username=user.username)[0]
+            print("logged in")
+            return profile(request, user_profile, lang)
+        error = form.errors
+        messages.error(request, "Unsuccessful log in attempt. Invalid information.")
+
+    form = translate_login_form(lang)
+
+    return render(request, f"{lang}/login.html", {'form': form, 'error': error})
 
 
 def registration(request, lang='en'):
@@ -33,10 +49,7 @@ def registration(request, lang='en'):
 
     form = translate_reg_form(lang)
 
-    if lang == 'en':
-        return render(request, "en/registration.html", {'form': form, 'error': error})
-    elif lang == 'ru':
-        return render(request, "ru/registration.html", {'form': form})
+    return render(request, f"{lang}/registration.html", {'form': form, 'error': error})
 
 
 def profile(request, user, lang='en'):
