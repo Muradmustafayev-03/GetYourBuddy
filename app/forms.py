@@ -8,7 +8,20 @@ COUNTRIES = (("1", "-"),) + tuple(countries)
 
 # Create your forms here.
 
-class EnRegisterForm(UserCreationForm):
+
+class RegisterForm(UserCreationForm):
+    class Meta:
+        model = Profile
+        fields = ('username', 'password1', 'password2', 'nickname', 'photo', 'birthdate', 'country', 'city', 'bio')
+
+    def save(self, commit=True):
+        user = super(RegisterForm, self).save(commit=False)
+        if commit:
+            user.save()
+        return user
+
+
+class EnRegisterForm(RegisterForm):
     username = forms.CharField(label='Create a username:',
                                widget=forms.TextInput(attrs={'class': 'login_form_input',
                                                              'placeholder': 'Username'}))
@@ -43,19 +56,8 @@ class EnRegisterForm(UserCreationForm):
     bio = forms.CharField(label='Write something about yourself:', required=False,
                           widget=forms.Textarea())
 
-    class Meta:
-        model = Profile
-        fields = (
-            'username', 'password1', 'password2', 'nickname', 'email', 'photo', 'birthdate', 'country', 'city', 'bio')
 
-    def save(self, commit=True):
-        user = super(EnRegisterForm, self).save(commit=False)
-        if commit:
-            user.save()
-        return user
-
-
-class RuRegisterForm(UserCreationForm):
+class RuRegisterForm(RegisterForm):
     username = forms.CharField(label='Придумайте логин:',
                                widget=forms.TextInput(attrs={'class': 'login_form_input',
                                                              'placeholder': 'Имя пользователя'}))
@@ -89,13 +91,3 @@ class RuRegisterForm(UserCreationForm):
                            widget=forms.TextInput(attrs={'class': 'login_form_input'}))
     bio = forms.CharField(label='Напишите что-нибудь о себе', required=False,
                           widget=forms.Textarea())
-
-    class Meta:
-        model = Profile
-        fields = ('username', 'password1', 'password2', 'nickname', 'photo', 'birthdate', 'country', 'city', 'bio')
-
-    def save(self, commit=True):
-        user = super(RuRegisterForm, self).save(commit=False)
-        if commit:
-            user.save()
-        return user
