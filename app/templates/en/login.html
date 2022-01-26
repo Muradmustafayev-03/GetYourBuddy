@@ -24,16 +24,9 @@
             <h1>Welcome to <span class="site_name">GetYourBuddy</span></h1>
             <hr>
             <form method="post" action="/login" name="login" class="login_form" id="login_form">
-                <div class="input_div">
-                    <label for="login_input">Enter your login or email</label>
-                    <input type="text" class="login_form_input" name="login_input" id="login_input"
-                       value="" placeholder="Enter your login or email" required>
-                </div>
-                <div class="input_div">
-                    <label for="password_input">Enter your password</label>
-                    <input type="password" class="login_form_input" name="password_input" id="password_input"
-                       value="" placeholder="Enter your password" required>
-                </div>
+                {% csrf_token %}
+                {{form}}
+                {{error}}
                 <input type="submit" name="submit" id="submit" value="Login">
             </form>
         </div>
