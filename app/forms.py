@@ -50,7 +50,7 @@ class EnRegisterForm(RegisterForm):
                                     'class': 'form-control',
                                     'placeholder': 'Select a date',
                                     'type': 'date'}))
-    country = forms.ChoiceField(choices=(("1", "-"),) + tuple(countries), label='Country:')
+    country = forms.ChoiceField(choices=(("", "-"),) + tuple(countries), label='Country:', required=False)
     city = forms.CharField(label='City/Town', required=False,
                            widget=forms.TextInput(attrs={'class': 'login_form_input'}))
     bio = forms.CharField(label='Write something about yourself:', required=False,

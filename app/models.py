@@ -10,8 +10,8 @@ from django_countries.fields import CountryField
 class Profile(User):
     nickname = models.CharField(max_length=150)
     user_id = str(time.time()) + str(random.randint(0, 1000))
-    photo = models.ImageField()
+    photo = models.ImageField(upload_to='static/img')
     birthdate = models.DateField(null=True, blank=True)
-    country = CountryField()
+    country = CountryField(null=True, blank=True)
     city = models.CharField(max_length=100)
     bio = models.CharField(max_length=2000)

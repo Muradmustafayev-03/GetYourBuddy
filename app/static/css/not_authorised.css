@@ -41,11 +41,11 @@ and (min-width : 1024px) {
 
 	.language_switcher {
 		display: inline-block;
-  	position: relative;
-  	float: right;
-  	top: 50%;
-  	-ms-transform: translateY(-50%);
-  	transform: translateY(-50%);
+  		position: relative;
+  		float: right;
+  		top: 50%;
+  		-ms-transform: translateY(-50%);
+  		transform: translateY(-50%);
 	}
 
 	#language {

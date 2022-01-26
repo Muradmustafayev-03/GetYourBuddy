@@ -49,9 +49,15 @@ def registration(request, lang='en'):
 
 
 def profile(request, user, lang='en'):
+    country = ''
+    try:
+        country = COUNTRIES[user.country]
+    except KeyError:
+        pass
     return render(request, f"{lang}/profile.html", {'nickname': user.nickname,
                                                     'photo': user.photo,
                                                     'birthdate': user.birthdate,
-                                                    'country': COUNTRIES[user.country],
+                                                    'country': country,
                                                     'city': user.city,
-                                                    'bio': user.bio})
+                                                    'bio': user.bio,
+                                                    'user': user})

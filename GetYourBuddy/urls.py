@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path
 
 import app.views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +28,8 @@ urlpatterns = [
     path('<str:lang>/welcome/', app.views.welcome, name='welcome'),
     path('<str:lang>/login/', app.views.login_request, name='login'),
     path('<str:lang>/registration/', app.views.registration, name='registration'),
-    path('<str:lang>/profile/', app.views.profile, name='registration'),
+    path('<str:lang>/profile/', app.views.profile, name='profile'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
