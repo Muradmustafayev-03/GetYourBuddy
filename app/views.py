@@ -11,20 +11,16 @@ def welcome(request, lang='en'):
         return render(request, "ru/welcome.html", {})
 
 
-def login_page(request, lang='en'):
+def login_request(request, lang='en'):
     error = ''
-    print("ugfh")
     if request.method == "POST":
-        print("post")
         form = translate_login_form(lang, request.POST)
         if form.is_valid():
-            print("valid")
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             messages.success(request, f"{user.username} has successfully logged in")
             user_profile = Profile.objects.filter(username=user.username)[0]
-            print("logged in")
             return profile(request, user_profile, lang)
         error = form.errors
         messages.error(request, "Unsuccessful log in attempt. Invalid information.")
@@ -56,6 +52,6 @@ def profile(request, user, lang='en'):
     return render(request, f"{lang}/profile.html", {'nickname': user.nickname,
                                                     'photo': user.photo,
                                                     'birthdate': user.birthdate,
-                                                    'country': user.country,
+                                                    'country': COUNTRIES[user.country],
                                                     'city': user.city,
                                                     'bio': user.bio})

@@ -24,7 +24,7 @@ urlpatterns = [
     path('', app.views.welcome, name='welcome'),
     path('<str:lang>/', app.views.welcome, name='welcome'),
     path('<str:lang>/welcome/', app.views.welcome, name='welcome'),
-    path('<str:lang>/login/', app.views.login_page, name='login'),
+    path('<str:lang>/login/', app.views.login_request, name='login'),
     path('<str:lang>/registration/', app.views.registration, name='registration'),
     path('<str:lang>/profile/', app.views.profile, name='registration'),
 ]

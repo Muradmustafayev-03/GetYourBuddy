@@ -1,11 +1,9 @@
 from django import forms
+from django_countries.data import COUNTRIES
 from django_countries import countries
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from app.models import *
-
-COUNTRIES = (("1", "-"),) + tuple(countries)
-
 
 # Create your forms here.
 
@@ -52,7 +50,7 @@ class EnRegisterForm(RegisterForm):
                                     'class': 'form-control',
                                     'placeholder': 'Select a date',
                                     'type': 'date'}))
-    country = forms.ChoiceField(choices=COUNTRIES, label='Country:')
+    country = forms.ChoiceField(choices=(("1", "-"),) + tuple(countries), label='Country:')
     city = forms.CharField(label='City/Town', required=False,
                            widget=forms.TextInput(attrs={'class': 'login_form_input'}))
     bio = forms.CharField(label='Write something about yourself:', required=False,
@@ -88,7 +86,7 @@ class RuRegisterForm(RegisterForm):
                                     'class': 'form-control',
                                     'placeholder': 'Select a date',
                                     'type': 'date'}))
-    country = forms.ChoiceField(choices=COUNTRIES, label='Страна')
+    country = forms.ChoiceField(choices=(("1", "-"),) + tuple(countries), label='Страна')
     city = forms.CharField(label='Город', required=False,
                            widget=forms.TextInput(attrs={'class': 'login_form_input'}))
     bio = forms.CharField(label='Напишите что-нибудь о себе', required=False,
