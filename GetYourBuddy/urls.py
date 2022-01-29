@@ -28,7 +28,7 @@ urlpatterns = [
     path('<str:lang>/welcome/', app.views.welcome, name='welcome'),
     path('<str:lang>/login/', app.views.login_request, name='login'),
     path('<str:lang>/registration/', app.views.registration, name='registration'),
-    path('<str:lang>/profile/', app.views.profile, name='profile'),
+    path('<str:lang>/profile/<str:user_id>/', app.views.profile, name='profile'),
 ]
 
 if settings.DEBUG:

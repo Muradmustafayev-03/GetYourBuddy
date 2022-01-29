@@ -2,30 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/../../static/css/all.css">
+    <link rel="stylesheet" href="/../../static/css/profile.css">
     <title>{{nickname}} | GYB</title>
 </head>
 <body>
     <header>
-        <a href="/en/chats">
-            <div>Chats</div>
-        </a>
-        <a href="/en/buddies">
-            <div>Buddies</div>
-        </a>
-        <a href="/en/profile">
-            <div>Profile</div>
-        </a>
+        <nav>
+            <a href="/en/chats">
+                <div class="navlink"><h3>Chats</h3></div>
+            </a>
+            <a href="/en/buddies">
+                <div class="navlink"><h3>Buddies</h3></div>
+            </a>
+            <a href="/en/profile">
+                <div class="navlink"><h3>Profile</h3></div>
+            </a>
+        </nav>
         <div class="language_switcher">
             <label for="language">Language</label>
             <select name="language" id="language" onchange="location = this.value;">
-                <option value="/en/profile">English</option>
-                <option value="/ru/profile">Russian</option>
+                <option value="/en/{{user_id}}">English</option>
+                <option value="/ru/{{user_id}}">Russian</option>
             </select>
         </div>
     </header>
     <main>
         {% if photo %}
-        <img src="{{photo.url}}" alt="profile photo">
+        <img src="{{photo.url}}" alt="profile photo" id="profile_photo">
         {% endif %}
         <h1>{{nickname}}</h1>
         {% if birthdate %}
@@ -41,9 +45,5 @@
         <p>{{bio}}</p>
         {% endif %}
     </main>
-    <footer>
-        <p>GetYourBuddy 2022</p>
-        <div class="contact" id="email">Email: <address>getyourbuddy.online@gmail.com</address></div>
-    </footer>
 </body>
 </html>
