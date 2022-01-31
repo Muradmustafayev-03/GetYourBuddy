@@ -1,6 +1,3 @@
-import random
-import time
-
 from django.db import models
 from django.contrib.auth.models import User
 from django_countries.fields import CountryField
@@ -9,7 +6,6 @@ from django_countries.fields import CountryField
 # Create your models here.
 class Profile(User):
     nickname = models.CharField(max_length=150)
-    user_id = str(time.time()) + str(random.randint(0, 1000))
     photo = models.ImageField(upload_to='static/img')
     birthdate = models.DateField(null=True, blank=True)
     country = CountryField(null=True, blank=True)

@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../static/css/not_authorised.css">
+    <link rel="stylesheet" href="../../static/css/all.css">
     <link rel="stylesheet" href="../../static/css/forms.css">
     <title>Регистрация | ДК</title>
 </head>
@@ -23,7 +23,7 @@
         <div class="wrapper">
             <h1>Добро пожаловать в <span class="site_name">ДостаньКореша</span></h1>
             <hr>
-            <form method="post" name="registration" class="login_form" id="login_form">
+            <form method="post" enctype="multipart/form-data" name="registration" class="login_form" id="login_form">
                 {% csrf_token %}
                 {{form }}
                 {{error}}

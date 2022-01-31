@@ -1,6 +1,7 @@
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from django_countries.data import COUNTRIES
 from .form_translators import *
 
 

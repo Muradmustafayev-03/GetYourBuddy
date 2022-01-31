@@ -1,12 +1,12 @@
 from .forms import *
 
 
-def translate_reg_form(lang, request=None):
+def translate_reg_form(lang, post=None, files=None):
     if lang == 'en':
-        return EnRegisterForm(request)
+        return EnRegisterForm(post, files)
     elif lang == 'ru':
-        return RuRegisterForm(request)
-    return EnRegisterForm(request)
+        return RuRegisterForm(post, files)
+    return EnRegisterForm(post, files)
 
 
 def translate_login_form(lang, request=None):

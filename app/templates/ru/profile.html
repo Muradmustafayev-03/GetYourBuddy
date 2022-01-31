@@ -2,24 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../static/css/all.css">
+    <link rel="stylesheet" href="../../static/css/profile.css">
     <title>{{nickname}} | ДК</title>
 </head>
 <body>
     <header>
-        <a href="/en/chats">
-            <div>Чаты</div>
-        </a>
-        <a href="/en/buddies">
-            <div>Кореша</div>
-        </a>
-        <a href="/en/profile">
-            <div>Профиль</div>
-        </a>
+        <nav>
+            <a href="/en/chats">
+                <div class="navlink">Чаты</div>
+            </a>
+            <a href="/en/buddies">
+                <div class="navlink">Кореша</div>
+            </a>
+            <a href="/en/profile">
+                <div class="navlink">Профиль</div>
+            </a>
+        </nav>
         <div class="language_switcher">
             <label for="language">Язык</label>
             <select name="language" id="language" onchange="location = this.value;">
-                <option value="/ru/profile">Русский</option>
-                <option value="/en/profile">Английский</option>
+                <option value="/ru/{{user_id}}">Русский</option>
+                <option value="/en/{{user_id}}">Английский</option>
             </select>
         </div>
     </header>
@@ -41,9 +45,5 @@
         <p>{{bio}}</p>
         {% endif %}
     </main>
-    <footer>
-        <p>ДостаньКореша 2022</p>
-        <div class="contact" id="email">Email: <address>getyourbuddy.online@gmail.com</address></div>
-    </footer>
 </body>
 </html>
