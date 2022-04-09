@@ -9,8 +9,8 @@
 
 
 #back_button {
-	height:  2.5em;
-	width: 250%;
+	height:  2em;
+	width: 2.5em;
 }
 
 
@@ -21,17 +21,67 @@ input, select {
 	margin-bottom: 5%;
 }
 
-.login_form_input {
-	width: 60%;
-	height: 30px;
-	margin: auto;
-	margin-top: 5%;
-	margin-bottom: 10%;
-	border-radius: 5px;
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1024px) {
+	.login_form_input {
+		width: 60%;
+		height: 30px;
+		margin: auto;
+		margin-top: 5%;
+		margin-bottom: 10%;
+		border-radius: 5px;
+	}
+
+	#submit {
+		width: 40%;
+		height: 30px;
+		border-radius: 5px;
+	}
 }
 
-#submit {
-	width: 40%;
-	height: 30px;
-	border-radius: 5px;
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+	.login_form_input {
+		width: 60%;
+		height: 60px;
+		margin: auto;
+		margin-top: 5%;
+		margin-bottom: 10%;
+		border-radius: 5px;
+	}
+
+	#submit {
+		width: 40%;
+		height: 60px;
+		border-radius: 5px;
+	}
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (max-device-width : 768px) {
+	button, input {
+		font-size: 2em;
+	}
+
+	.login_form_input {
+		width: 60%;
+		height: 60px;
+		margin: auto;
+		margin-top: 5%;
+		margin-bottom: 10%;
+		border-radius: 5px;
+	}
+
+	#submit {
+		width: 40%;
+		height: 60px;
+		border-radius: 5px;
+	}
 }
